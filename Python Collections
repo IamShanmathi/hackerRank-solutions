@@ -1,0 +1,14 @@
+from collections import Counter
+
+if __name__ == '__main__':
+    s = input()
+    
+    # Count occurrences of each character
+    counts = Counter(s)
+    
+    # Sort primarily by frequency (descending) and secondarily by character (alphabetical)
+    sorted_chars = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    
+    # Print top 3 most common characters
+    for char, count in sorted_chars[:3]:
+        print(char, count)
