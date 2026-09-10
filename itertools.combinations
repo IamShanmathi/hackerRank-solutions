@@ -1,0 +1,14 @@
+from itertools import combinations
+
+n = int(input())
+letters = input().split()
+k = int(input())
+
+# Generate all possible combinations of k indices
+total_combinations = list(combinations(letters, k))
+
+# Count combinations containing at least one 'a'
+favorable = sum(1 for combo in total_combinations if 'a' in combo)
+
+# Print probability rounded to 4 decimal places
+print(f"{favorable / len(total_combinations):.4f}")
