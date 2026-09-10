@@ -1,0 +1,22 @@
+from collections import deque
+
+for _ in range(int(input())):
+    n = int(input())
+    d = deque(map(int, input().split()))
+    
+    possible = True
+    last_picked = float('inf')
+    
+    while d:
+        if d[0] >= d[-1]:
+            chosen = d.popleft()
+        else:
+            chosen = d.pop()
+            
+        if chosen > last_picked:
+            possible = False
+            break
+            
+        last_picked = chosen
+        
+    print("Yes" if possible else "No")
