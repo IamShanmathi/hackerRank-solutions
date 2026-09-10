@@ -1,0 +1,11 @@
+from itertools import product
+
+K, M = map(int, input().split())
+
+# Read K lists, ignoring the first element (length of list) for each line
+lists = [list(map(int, input().split()))[1:] for _ in range(K)]
+
+# Find the maximum value of (sum(x^2) % M) over all possible combinations
+max_sum = max(sum(x**2 for x in combo) % M for combo in product(*lists))
+
+print(max_sum)
